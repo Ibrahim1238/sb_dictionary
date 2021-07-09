@@ -54,7 +54,7 @@ class Word
     private $publishDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=sentence::class, mappedBy="relatedWord")
+     * @ORM\OneToMany(targetEntity=Sentence::class, mappedBy="relatedWord")
      */
     private $sentences;
 

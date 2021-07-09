@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {WordService} from "../../services/word.service";
-import {IWord} from "../../models/word";
+import {WordService} from "../../../../services/word.service";
+import {IWord} from "../../../../models/IWord";
 
 
 @Component({
@@ -19,7 +19,7 @@ export class DetailPage {
     this.id = this.route.snapshot.paramMap.get('id');
     this.WordService.getWord(this.id).subscribe(words => {
       console.log(words);
-      this.words = words;
+      this.words = words['hydra:member'];
     });
   }
 }
