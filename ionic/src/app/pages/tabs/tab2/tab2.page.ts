@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {IWord} from "../models/word";
-import {WordService} from "../services/word.service";
-
+import {IWord} from "../../../models/IWord";
+import {WordService} from "../../../services/word.service";
 
 @Component({
   selector: 'app-tab2',
@@ -10,13 +9,13 @@ import {WordService} from "../services/word.service";
 })
 export class Tab2Page {
 
-  words: IWord[] = [];
-  filterTerm: string;
+  public words: IWord[];
+  public filterTerm: string;
 
 
   constructor(private wordService: WordService) {
     this.wordService.getWordsList().subscribe(words => {
-    //  console.log(words);
+      console.log(words);
       this.words = words['hydra:member'];
 
     });
