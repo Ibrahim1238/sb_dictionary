@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+    loadChildren: () => import('./detail/detail.module').then(m => m.DetailPageModule)
   }
 ];
 

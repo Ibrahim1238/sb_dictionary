@@ -4,7 +4,7 @@ export interface IWord {
     pronounciation: string;
     deText: string;
     enText: string;
-    exampleSentences: string;
+    exampleSentences: string; //@todo array of sentence Interface
     published: boolean;
     publishDate: string;
 
