@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment';
 import {IWord} from "../models/word";
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import {ISentence} from "../models/sentence";
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,12 @@ export class WordService {
     return this.http.get<IWord[]>(`${environment.apiLocation}api/words?page=1`);
   }
 
-  public getWord(id: string): Observable<IWord[]> {
-    console.log(`${environment.apiLocation}api/words/`+id);
-    return this.http.get<IWord[]>(`${environment.apiLocation}api/words/`+id);
+  public getWord(id: string): Observable<IWord> {
+    console.log(`${environment.apiLocation}api/words/${id}`);
+    return this.http.get<IWord>(`${environment.apiLocation}api/words/${id}`);
   }
-
+  public getRelatedSentencesList(id: string): Observable<ISentence[]> {
+    console.log(`${environment.apiLocation}api/words/${id}/sentences/?page=1`);
+    return this.http.get<ISentence[]>(`${environment.apiLocation}api/words/${id}/sentences?page=1`);
+  }
 }

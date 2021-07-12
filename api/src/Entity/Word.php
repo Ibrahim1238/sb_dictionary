@@ -4,13 +4,20 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\WordRepository;
+use ApiPlatform\Core\Annotation\ApiFilter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiSubresource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass=WordRepository::class)
+ *  normalizationContext={"groups"={"word_listing:read"}}
  */
 class Word
 {
@@ -50,11 +57,14 @@ class Word
 
     /**
      * @ORM\Column(type="datetime")
+     * @ApiFilter(DateFilter::class, properties={"publishDate"})
+     *@ApiFilter(SearchFilter::class, properties={"publishDate": "exact"})
      */
     private $publishDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=sentence::class, mappedBy="relatedWord")
+     * @ORM\OneToMany(targetEntity=Sentence::class, mappedBy="relatedWord")
+     * @ApiSubresource()
      */
     private $sentences;
 
@@ -147,6 +157,7 @@ class Word
 
     /**
      * @return Collection|sentence[]
+     * @Groups({"word_listing:read"})
      */
     public function getSentences(): Collection
     {

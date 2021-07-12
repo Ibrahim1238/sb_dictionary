@@ -1,31 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>detail</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Wort Detailseite</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      development
-      <ion-label>{{this.words.schwText}}</ion-label>
-    </ion-card-header>
-
-    <ion-card-content>
-      <ion-label>{{this.words.id}}</ion-label>
-      <br>
-      <ion-label>{{this.words.pronounciation}}</ion-label>
-      <br>
-      <ion-label>{{this.words.deText}}</ion-label>
-      <br>
-      <ion-label>{{this.words.enText}}</ion-label>
-      <br>
-      <ion-label>{{this.words.exampleSentences}}</ion-label>
-      <br>
-      <ion-label>{{this.words.published}}</ion-label>
-      <br>
-      <ion-label>{{this.words.publishDate}}</ion-label>
-    </ion-card-content>
-
-  </ion-card>
+    <ion-row class="ion-justify-content-center">
+        <ion-col size-xs="12" size-sm="8" size-md="6" size-lg="3">
+            <ion-card style="background: antiquewhite;height: 65vh;">
+                <ion-card-header>
+                    <div style="display: flex;">
+                        <div>Das Wort lautet: <strong>{{this.word.schwText}}</strong></div>
+                    </div>
+                </ion-card-header>
+                <ion-card-content>
+                    <span>Mehr Info über das Wort:</span>
+                    <div>
+                        <div>Das Wort auf deutsch: <strong>{{this.word.deText}}</strong></div>
+                    </div>
+                    <div>
+                        <div>Das Wort auf englisch: <strong>{{this.word.enText}}</strong></div>
+                    </div>
+                    <div>
+                        <div>Das Wort wurde veröffentlicht am: <br>
+                            <strong>{{this.word.publishDate |  date:'MM.dd.yyyy'}}</strong>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <ion-label>
+                        <div *ngFor="let sentence of this.sentences">
+                            <div>
+                                <div>Beispielsatz in Deutsch:<br>
+                                    <strong>{{sentences[0].de}}</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div>Beispielsatz in Englisch:<br>
+                                    <strong>{{sentences[0].en}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-label>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
 </ion-content>

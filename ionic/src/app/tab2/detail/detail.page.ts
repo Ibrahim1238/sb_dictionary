@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {WordService} from "../../services/word.service";
 import {IWord} from "../../models/word";
+import {ISentence} from "../../models/sentence";
 
 
 @Component({
@@ -11,15 +12,21 @@ import {IWord} from "../../models/word";
 })
 export class DetailPage {
   id: string;
-  words: IWord[];
+  word: IWord;
+  sentences: ISentence[];
 
   constructor(private route: ActivatedRoute,private WordService:WordService) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.WordService.getWord(this.id).subscribe(words => {
-      console.log(words);
-      this.words = words;
+    console.log('id', this.id);
+    this.WordService.getWord(this.id).subscribe(word => {
+      console.log('word', word);
+      this.word = word;
+    });
+    this.WordService.getRelatedSentencesList(this.id).subscribe(sentences => {
+      console.log('sentences', sentences['hydra:member']);
+      this.sentences = sentences['hydra:member'];
     });
   }
 }

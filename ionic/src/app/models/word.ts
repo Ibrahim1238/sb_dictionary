@@ -6,6 +6,7 @@ export interface IWord {
     enText: string;
     exampleSentences: string;
     published: boolean;
+    publishDate: string;
 
 }
 

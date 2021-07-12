@@ -15,6 +15,6 @@ import { DetailPage } from './detail.page';
     IonicModule,
     DetailPageRoutingModule
   ],
-  declarations: [DetailPage]
+    declarations: [DetailPage]
 })
 export class DetailPageModule {}
