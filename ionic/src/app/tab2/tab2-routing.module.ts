@@ -3,14 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { Tab2Page } from './tab2.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: Tab2Page,
-  },
-  {
-    path: ':id',
-    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
-  }
+  {path: '', component: Tab2Page},
+  {path: ':id', loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)}
 ];
 
 @NgModule({

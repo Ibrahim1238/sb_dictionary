@@ -28,4 +28,8 @@ export class WordService {
     console.log(`${environment.apiLocation}api/words/${id}/sentences/?page=1`);
     return this.http.get<ISentence[]>(`${environment.apiLocation}api/words/${id}/sentences?page=1`);
   }
+  public getDayWord(date: string): Observable<IWord> {
+    console.log(`${environment.apiLocation}api/words?page=1&publishDate=${date}`);
+    return this.http.get<IWord>(`${environment.apiLocation}api/words?page=1&publishDate=${date}`);
+  }
 }

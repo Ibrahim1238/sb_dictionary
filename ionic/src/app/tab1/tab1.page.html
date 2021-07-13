@@ -14,7 +14,12 @@
       <h2><b>Schwäbisch Dictionärle</b> für Neigschmeckte</h2>
       <p>
         Heit gats um des Wörtle:<br>
-        <b>[TODO]</b>
+        <b>
+          <br>
+          <a *ngIf="this.word != undefined" (click)="goToDetailPage()" style="  text-decoration: none;">
+            <ion-label >{{this.word.schwText}}</ion-label>
+          </a>
+        </b>
       </p>
     </ion-slide>
     <ion-slide>
