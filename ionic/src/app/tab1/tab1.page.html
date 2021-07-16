@@ -1,0 +1,34 @@
+<ion-header style="background: #00e03b;">
+  <ion-toolbar >
+    <ion-title class="ion-text-center" >
+      Malzeit
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding" scroll-y="false" color="success">
+  <ion-slides>
+
+    <ion-slide>
+       <img src="../../assets/slide.png">
+      <h2><b>Schwäbisch Dictionärle</b> für Neigschmeckte</h2>
+      <p>
+        Heit gats um des Wörtle:<br>
+        <b>
+          <br>
+          <a *ngIf="this.word != undefined" (click)="goToDetailPage()" style="  text-decoration: none;">
+            <ion-label >{{this.word.schwText}}</ion-label>
+          </a>
+        </b>
+      </p>
+    </ion-slide>
+    <ion-slide>
+      <img src="../../assets/slide.png">
+      <h2>Wasch'n des?</h2>
+      <p>
+        Wie ihr älle scho wisschd: Gottes schönste Gabe, ist und bleibt der Schwabe.
+        <br><br> So lernsch Schwäbisch schwätza!
+      </p>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

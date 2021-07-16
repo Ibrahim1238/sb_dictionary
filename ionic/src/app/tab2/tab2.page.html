@@ -1,0 +1,29 @@
+<ion-header  style="background: #ccfdd9;">
+  <ion-toolbar>
+    <ion-title >
+    Wörter Liste
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size-xs="12" size-sm="8" size-md="6" size-lg="3">
+      <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center" *ngFor="let word of this.words | filter:filterTerm ">
+    <ion-col  size-xs="12" size-sm="8" size-md="6" size-lg="3">
+      <a [routerLink]="word.id" style="  text-decoration: none;">
+        <ion-item>
+          <ion-label>{{word.schwText}}</ion-label>
+          <p *ngIf="word.published==true" >   <ion-icon name="checkmark-circle" style="color: green; "></ion-icon>  </p>
+          <p *ngIf="word.published==false" >   <ion-icon name="checkmark-circle" ></ion-icon>  </p>
+
+        </ion-item>
+      </a>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+
