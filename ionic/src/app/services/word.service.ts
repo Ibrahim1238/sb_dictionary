@@ -11,7 +11,7 @@ import {ISentence} from "../models/sentence";
 })
 export class WordService {
 
-  constructor(  private http: HttpClient) {
+  constructor(private http: HttpClient) {
 
   }
 

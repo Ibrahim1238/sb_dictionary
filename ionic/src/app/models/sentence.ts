@@ -1,6 +1,6 @@
 export interface ISentence {
     id: number;
-    // schwText: string;
+    schw: string;
     de: string;
     en: string;
 }

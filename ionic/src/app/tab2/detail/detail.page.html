@@ -1,14 +1,20 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>Wort Detailseite</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/tab2"> </ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            &nbsp;Wort Detailseite
+        </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-row class="ion-justify-content-center">
         <ion-col size-xs="12" size-sm="8" size-md="6" size-lg="3">
-            <ion-card style="background: antiquewhite;height: 65vh;" *ngIf="this.word != undefined">
+            <ion-card style="background: antiquewhite;" *ngIf="this.word != undefined">
                 <ion-card-header>
+                    <ion-back-button color="secondary">Zurück</ion-back-button>
                     <div style="display: flex;">
                         <div>Das Wort lautet: <strong>{{this.word.schwText}}</strong></div>
                     </div>
@@ -31,13 +37,21 @@
                     <ion-label>
                         <div *ngFor="let sentence of this.sentences">
                             <div>
-                                <div>Beispielsatz in Deutsch:<br>
-                                    <strong>{{sentences[0].de}}</strong>
+                                <div>Beispiel auf Schwäbisch:<br>
+                                    <strong>{{sentences[0].schw}}</strong>
+                                    <audio src="assets/sounds/mixkit-game-show-suspense-waiting-667.wav"  controls></audio>
                                 </div>
                             </div>
                             <div>
-                                <div>Beispielsatz in Englisch:<br>
+                                <div>Beispiel auf Deutsch:<br>
+                                    <strong>{{sentences[0].de}}</strong>
+                                    <audio src="assets/sounds/mixkit-game-show-suspense-waiting-667.wav"  controls></audio>
+                                </div>
+                            </div>
+                            <div>
+                                <div>Beispiel auf Englisch:<br>
                                     <strong>{{sentences[0].en}}</strong>
+                                    <audio src="assets/sounds/mixkit-game-show-suspense-waiting-667.wav"  controls></audio>
                                 </div>
                             </div>
                         </div>

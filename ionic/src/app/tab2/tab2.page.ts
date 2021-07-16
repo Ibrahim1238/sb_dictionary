@@ -15,8 +15,9 @@ export class Tab2Page {
 
 
   constructor(private wordService: WordService) {
+    console.log(1);
     this.wordService.getWordsList().subscribe(words => {
-    //  console.log(words);
+      console.log(words);
       this.words = words['hydra:member'];
 
     });
