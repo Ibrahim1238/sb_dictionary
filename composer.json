@@ -1,8 +1,8 @@
 {
    "scripts": {
     "post-install-cmd": [
-      "cd www && composer install",
-      "cd www/backend && composer install"
+      "cd api && composer install",
+	  "composer dump-autoload"
     ]
   },
   "config": {
