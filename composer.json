@@ -1,0 +1,8 @@
+{
+   "scripts": {
+    "post-install-cmd": [
+      "cd www && composer install",
+      "cd www/backend && composer install"
+    ]
+  }
+}
