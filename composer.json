@@ -4,5 +4,8 @@
       "cd www && composer install",
       "cd www/backend && composer install"
     ]
-  }
+  },
+  "config": {
+    "vendor-dir": "api/vendor"
+	}
 }
